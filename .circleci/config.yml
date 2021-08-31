@@ -3,7 +3,7 @@ orbs:
    aws-cli: circleci/aws-cli@1.0
    serverless: circleci/serverless-framework@1.0
 jobs:
-   one:
+   aws_deploy:
      executor: serverless/default
      steps:
        - checkout
@@ -11,6 +11,6 @@ jobs:
        - serverless/setup
        - run: sls deploy 
 workflows:
-  one_and_two:
+  deploy:
     jobs:
-      - one
+      - aws_deploy
